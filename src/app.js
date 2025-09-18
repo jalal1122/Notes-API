@@ -1,6 +1,9 @@
 import express from "express";
 import ApiError from "./utils/apiError.js";
 import postRouter from "./routes/post.route.js";
+import Redis from "ioredis";
+
+const redis = new Redis();
 
 const app = express();
 
@@ -25,3 +28,5 @@ app.use((err, req, res, next) => {
 });
 
 export default app;
+
+export { redis };

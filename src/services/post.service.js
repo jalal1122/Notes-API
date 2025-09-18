@@ -24,3 +24,7 @@ export const deletePost = async (id) => {
 export const deleteAllPosts = async () => {
   return await Post.deleteMany({});
 };
+
+export const getPopularPosts = async () => {
+  return await Post.find().sort({ createdAt: -1 }).limit(5);
+};
