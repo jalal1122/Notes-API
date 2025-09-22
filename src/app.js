@@ -2,6 +2,7 @@ import express from "express";
 import ApiError from "./utils/apiError.js";
 import postRouter from "./routes/post.route.js";
 import Redis from "ioredis";
+import userRouter from "./routes/user.route.js";
 
 const redis = new Redis();
 
@@ -13,6 +14,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/posts", postRouter);
+
+app.use("/api/user", userRouter);
 
 // handle errors
 app.use((err, req, res, next) => {
